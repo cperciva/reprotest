@@ -24,3 +24,5 @@ The `-a` option can be passed an AMI Id (ami-xxxxxxxxxxxxxxxxx) or an SSM
 Parameter path (resolve:ssm:/aws/service/freebsd/amd64/base/ufs/14.2/STABLE).
 
 I intend to run this weekly as part of the FreeBSD weekly snapshot process.
+
+This code was heavily inspired by https://github.com/5u623l20/repliforge-aws
