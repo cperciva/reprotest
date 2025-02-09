@@ -144,9 +144,10 @@ reprotest_enable=YES
 reprotest_run () {
 	PATH=$PATH:/usr/local/bin
 	AMIDISK=\\\$(realpath /dev/aws/disk/linuxname/sdf)
+	AMIPART=\\\$(ls \\\${AMIDISK}* | tail -1)
 	JFLAG=-j\\\$(sysctl -n hw.ncpu)
 	mkdir /mnt/amiroot
-	mount "\\\${AMIDISK}p3" /mnt/amiroot
+	mount "\\\${AMIPART}" /mnt/amiroot
 	git clone --branch ${BRANCH} https://git.freebsd.org/src.git /usr/src
 	cd /usr/src && git reset --hard ${HASH}
 	make -C /usr/src buildworld buildkernel \\\${JFLAG}
